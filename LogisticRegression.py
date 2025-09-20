@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import pickle
+import joblib
 import pandas as pd
 
 def add_weighted_score(df):
@@ -19,7 +20,7 @@ def add_weighted_score(df):
     return df
 
 with open("logistic_new_model.pkl", "rb") as f:
-    model = pickle.load(f)
+    model = joblib.load(f)
 
 app = Flask(__name__)
 
